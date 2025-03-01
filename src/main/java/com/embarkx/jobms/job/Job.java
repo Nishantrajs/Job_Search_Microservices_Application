@@ -1,13 +1,11 @@
-package com.embarkx.jobapp.job;
+package com.embarkx.jobms.job;
 
-import com.embarkx.jobapp.company.Company;
 import jakarta.persistence.*;
 
 @Entity
 public class Job
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
@@ -16,8 +14,7 @@ public class Job
     private String maxSalary;
     private String location;
 
-    @ManyToOne
-    private Company company;
+    private Long companyId;
 
     public Job() {
     }
@@ -31,12 +28,12 @@ public class Job
         this.location = location;
     }
 
-    public Company getCompany() {
-        return company;
+    public Long getCompanyId() {
+        return companyId;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 
     public String getDescription() {
